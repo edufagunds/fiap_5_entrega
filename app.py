@@ -19,10 +19,12 @@ FEATURES = ["IAN", "IDA", "IEG", "IAA", "IPS", "IPV", "pedra_cat"]
 PEDRAS = ["Quartzo", "Ágata", "Ametista", "Topázio"]
 
 @st.cache_resource
-def load_model():
+def load_model_artifact():
     return joblib.load(MODEL_PATH)
 
-model = load_model()
+artifact  = load_model_artifact()
+
+model = artifact["model"]
 
 st.title("🎓 PEDE — Radar de Risco de Defasagem")
 st.caption("Modelo preditivo baseado nos indicadores IAN, IDA, IEG, IAA, IPS, IPV e Pedra.")
